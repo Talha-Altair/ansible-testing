@@ -1,14 +1,17 @@
 ---
 - name: Transfer and execute a script.
   hosts: server
-  user: ubuntu
+  user: talha
   tasks:
 
   - name: Creates directory
-    file: path=/home/ubuntu/test state=directory
+    file: path=/home/talha/test state=directory
 
   - name: Transfer the script
-    copy: src=./test.sh dest=/home/ubuntu/test.sh mode=0777
+    copy: src=./test.sh dest=/home/talha/test.sh mode=0777
 
-  - name: Execute the script
-    command: sh /home/ubuntu/test.sh
+  # - name: Execute the script
+  #   command: sh /home/talha/test.sh
+
+  - name: set alias
+    command: echo 'alias clr="clear"' >> /home/talha/.bashrc
